@@ -1,0 +1,24 @@
+from PIL import Image
+import random
+
+# Set the dimensions of the image
+width = 640
+height = 480
+
+# Create a new image with random pixels
+pixels = []
+for y in range(height):
+    row = []
+    for x in range(width):
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        row.append((r, g, b))
+    pixels.append(row)
+
+# Convert the pixel data to an image
+image = Image.new('RGB', (width, height))
+image.putdata([pixel for row in pixels for pixel in row])
+
+# Save the image as a JPEG file
+image.save('random.jpg', 'JPEG')
