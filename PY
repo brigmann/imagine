@@ -16,7 +16,7 @@ for y in range(height):
         row.append((r, g, b))
     pixels.append(row)
 
-# Convert the pixel data to an image
+# Convert the pixel data into an image
 image = Image.new('RGB', (width, height))
 image.putdata([pixel for row in pixels for pixel in row])
 
